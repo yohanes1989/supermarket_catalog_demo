@@ -1,7 +1,9 @@
 const express = require('./config/express.js');
 
-express.listen(3000, () => {
-  console.log('Catalog editor API server started on port 3000.');
+const port = process.env.NODE_ENV === 'production'?8080:3000;
+
+express.listen(port, () => {
+  console.log('Catalog editor API server started on port ' + port + '.');
 });
 
 module.exports = express;
